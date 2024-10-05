@@ -1,0 +1,9 @@
+{
+  "name": "tailwind-utils",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/tailwind-utils/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project tailwind-utils --web",
+  "targets": {}
+}

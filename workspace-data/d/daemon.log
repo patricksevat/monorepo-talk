@@ -1,0 +1,11 @@
+[NX Daemon Server] - 2024-09-05T19:34:25.935Z - Started listening on: /var/folders/4p/rnlhgb8s1nd1bkcpt4qllnd40000gn/T/2f0b1ddf2c55e13f078e/d.sock
+[NX Daemon Server] - 2024-09-05T19:34:25.936Z - [WATCHER]: Subscribed to changes within: /Users/patrick/projects/l-orceal/org (native)
+[NX Daemon Server] - 2024-09-05T19:34:25.946Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-09-05T19:34:25.947Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-09-05T19:34:25.948Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-09-05T19:34:25.948Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2024-09-05T19:34:25.948Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2024-09-05T19:34:25.948Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-09-05T19:34:25.949Z - [WATCHER]: Stopping the watcher for /Users/patrick/projects/l-orceal/org (sources)
+[NX Daemon Server] - 2024-09-05T19:34:25.949Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-09-05T19:34:25.949Z - [WATCHER]: Stopping the watcher for /Users/patrick/projects/l-orceal/org (outputs)

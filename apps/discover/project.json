@@ -1,0 +1,107 @@
+{
+  "name": "discover",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/discover/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/discover",
+        "index": "apps/discover/src/index.html",
+        "baseHref": "/",
+        "main": "apps/discover/src/main.ts",
+        "tsConfig": "apps/discover/tsconfig.app.json",
+        "assets": ["apps/discover/src/favicon.ico", "apps/discover/src/assets"],
+        "styles": ["apps/discover/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "apps/discover/webpack.config.ts"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/discover/src/environments/environment.ts",
+              "with": "apps/discover/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/discover/webpack.config.prod.ts"
+        },
+        "production-zephyr": {
+          "fileReplacements": [
+            {
+              "replace": "apps/discover/src/environments/environment.ts",
+              "with": "apps/discover/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/discover/webpack.config.prod.zephyr.ts"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "discover:build",
+        "hmr": true,
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "discover:build:development"
+        },
+        "production": {
+          "buildTarget": "discover:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "discover:build",
+        "watch": false,
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "discover:build:development"
+        },
+        "production": {
+          "buildTarget": "discover:build:production"
+        }
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "dependsOn": ["build"],
+      "options": {
+        "command": "rm -rf production/discover && mkdir -p production/discover && cp -r dist/apps/discover/* production/discover"
+      }
+    }
+  }
+}

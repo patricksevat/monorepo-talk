@@ -1,0 +1,107 @@
+{
+  "name": "checkout",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/checkout/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/checkout",
+        "index": "apps/checkout/src/index.html",
+        "baseHref": "/",
+        "main": "apps/checkout/src/main.js",
+        "tsConfig": "apps/checkout/tsconfig.app.json",
+        "assets": ["apps/checkout/src/favicon.ico", "apps/checkout/src/assets"],
+        "styles": ["apps/checkout/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "apps/checkout/webpack.config.ts"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/checkout/src/environments/environment.ts",
+              "with": "apps/checkout/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/checkout/webpack.config.prod.ts"
+        },
+        "production-zephyr": {
+          "fileReplacements": [
+            {
+              "replace": "apps/checkout/src/environments/environment.ts",
+              "with": "apps/checkout/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/checkout/webpack.config.prod.zephyr.ts"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "checkout:build",
+        "hmr": true,
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "checkout:build:development"
+        },
+        "production": {
+          "buildTarget": "checkout:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "checkout:build",
+        "watch": false,
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "checkout:build:development"
+        },
+        "production": {
+          "buildTarget": "checkout:build:production"
+        }
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "dependsOn": ["build"],
+      "options": {
+        "command": "rm -rf production/checkout && mkdir -p production/checkout && cp -r dist/apps/checkout/* production/checkout"
+      }
+    }
+  }
+}

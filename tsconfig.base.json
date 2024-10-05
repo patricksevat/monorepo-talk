@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@org/checkout-provider": ["libs/checkout-provider/src/index.ts"],
+      "@org/components": ["libs/components/src/index.ts"],
+      "@org/header": ["libs/header/src/index.ts"],
+      "@org/logger": ["libs/logger/src/index.ts"],
+      "@org/pages/home": ["libs/pages/home/src/index.ts"],
+      "@org/tailwind-utils": ["libs/tailwind-utils/src/index.ts"],
+      "analytics": ["libs/analytics/src/index.ts"],
+      "discover/Module": ["apps/discover/src/remote-entry.ts"],
+      "logger": ["libs/logger/src/index.ts"],
+      "checkout/Module": ["apps/checkout/src/remote-entry.js"],
+      "checkout/CartOverlay": ["apps/checkout/src/components/CartOverlay.js"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
