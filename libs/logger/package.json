@@ -1,0 +1,7 @@
+{
+  "name": "@patricksevat/logger-demo",
+  "version": "1.0.0-pre.01",
+  "main": "./src/index.js",
+  "type": "commonjs",
+  "types": "./src/index.d.ts"
+}
