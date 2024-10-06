@@ -107,7 +107,6 @@ const ProductsPage = () => {
 
   useEffect(() => {
     logger('Products page loaded', 'info');
-    // logger('Products page loaded', 'info', '/products');
   }, []);
 
   return (
@@ -134,7 +133,6 @@ const ProductsPage = () => {
                 <Select
                   onValueChange={(value: string) => {
                     logger(`Filtering products by category: ${value}`, 'info');
-                    // logger(`Filtering products by category: ${value}`, 'info', '/products');
                     return setCategory(value);
                   }}
                 >
@@ -150,7 +148,6 @@ const ProductsPage = () => {
                 <Select
                   onValueChange={(value: string) => {
                     logger(`Sorting products by ${value}`, 'info');
-                    // logger(`Sorting products by ${value}`, 'info', '/products');
                     return setSort(value);
                   }}
                 >
