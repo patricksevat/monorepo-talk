@@ -10,4 +10,4 @@ function loggerAfter(message: string, severity: Severity, appName = ''): void {
   logMethod(`[${appName}]: ${message}`);
 }
 
-export const logger = loggerAfter;
+export const logger = loggerBefore;
