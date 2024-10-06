@@ -1,0 +1,24 @@
+{
+  "name": "@patricksevat/ts-guard",
+  "version": "1.0.1",
+  "description": "",
+  "main": "dist/lib/main.js",
+  "scripts": {
+    "start": "node ../../node_modules/.bin/tsc --project ./tsconfig-build.json --watch",
+    "compare": "node dist/lib/main.js",
+    "build": "node ../../node_modules/.bin/tsc --project ./tsconfig-build.json",
+    "test": "node test/test-all-packages.js",
+    "lint": "eslint . --ext .ts",
+    "install-aliased-libs": "node scripts/install-aliased-libs.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "ts-morph": "^21.0.1",
+    "glob": "latest"
+  },
+  "dependencies": {
+  }
+}
