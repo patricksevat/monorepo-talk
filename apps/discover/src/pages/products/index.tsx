@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@org/components';
 import { Link } from 'react-router-dom';
 
@@ -105,8 +105,10 @@ const ProductsPage = () => {
     }
   }, [category, sort]);
 
-  // logger({ message: 'Products page loaded', severity: 'info', app: 'discover', page: 'products' });
-  logger('Products page loaded', 'info');
+  useEffect(() => {
+    logger('Products page loaded', 'info');
+    // logger('Products page loaded', 'info', '/products');
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -132,7 +134,7 @@ const ProductsPage = () => {
                 <Select
                   onValueChange={(value: string) => {
                     logger(`Filtering products by category: ${value}`, 'info');
-                    // logger({ message: `Filtering products by category: ${value}`, severity: 'info', app: 'discover', page: 'products' });
+                    // logger(`Filtering products by category: ${value}`, 'info', '/products');
                     return setCategory(value);
                   }}
                 >
@@ -148,7 +150,7 @@ const ProductsPage = () => {
                 <Select
                   onValueChange={(value: string) => {
                     logger(`Sorting products by ${value}`, 'info');
-                    // logger({ message: `Sorting products by ${value}`, severity: 'info', app: 'discover', page: 'products' });
+                    // logger(`Sorting products by ${value}`, 'info', '/products');
                     return setSort(value);
                   }}
                 >

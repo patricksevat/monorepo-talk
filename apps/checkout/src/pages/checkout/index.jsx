@@ -27,7 +27,7 @@ const ProductsPage = () => {
   const cart = useCart();
 
   useEffect(() => {
-    logger('Checkout page loaded', 'info');
+    logger('Checkout page loaded');
   }, []);
   const subtotal = cart.cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
