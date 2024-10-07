@@ -132,7 +132,6 @@ const ProductsPage = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Select
                   onValueChange={(value: string) => {
-                    logger(`Filtering products by category: ${value}`, 'info');
                     return setCategory(value);
                   }}
                 >
@@ -147,7 +146,6 @@ const ProductsPage = () => {
                 </Select>
                 <Select
                   onValueChange={(value: string) => {
-                    logger(`Sorting products by ${value}`, 'info');
                     return setSort(value);
                   }}
                 >
