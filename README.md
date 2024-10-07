@@ -2,6 +2,16 @@
 
 A demo app that shows various strategies for handling dependency version management
 
+## Slides
+
+https://docs.google.com/presentation/d/1JZ6oVizhvkb4wI3JdJHK2Jh9DpDgMP8ZsrtE-W4-xKI/edit?usp=sharing
+
+## `.d.ts`comparison tool
+
+Can be found under [./tools/ts-guard](./tools/ts-guard/README.md).
+
+Instructions how to run the comparison script are there as well
+
 ## Commands
 
 ### Local development
@@ -36,13 +46,3 @@ The Zephyr plugin allows us to build and deploy in one go.
 To build all apps: `nx build shell --configuration "production-zephyr" --verbose`
 
 To build a specific remote: `nx build {{remote-app-name}} --configuration "production-zephyr" --verbose`
-
-### Generator
-
-#### Library
-
-`nx g @nx/react:library`
-
-or
-
-`nx g @nx/js:lib`
